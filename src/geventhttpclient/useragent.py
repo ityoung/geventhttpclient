@@ -398,7 +398,7 @@ class UserAgent(object):
                 e = RetriesExceeded(url, "Redirection limit reached (%s)" % self.max_redirects)
                 e = self._handle_error(e, url=url)
         else:
-            return self._handle_retries_exceeded(url, last_error=e)
+            return self._handle_retries_exceeded(url)
 
     @classmethod
     def _conversation_str(cls, url, resp, payload=None):
@@ -463,7 +463,7 @@ class UserAgent(object):
             # All done, break outer loop
             break
         else:
-            self._handle_retries_exceeded(url, last_error=e)
+            self._handle_retries_exceeded(url)
         return resp
 
 
