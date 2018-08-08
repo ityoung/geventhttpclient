@@ -252,7 +252,7 @@ class UserAgent(object):
     valid_response_codes = frozenset([200, 206, 301, 302, 303, 307])
     redirect_resonse_codes = frozenset([301, 302, 303, 307])
 
-    def __init__(self, max_redirects=3, max_retries=3, retry_delay=0,
+    def __init__(self, max_redirects=3, max_retries=10, retry_delay=0,
                  cookiejar=None, headers=None, **kwargs):
         self.max_redirects = int(max_redirects)
         self.max_retries = int(max_retries)
